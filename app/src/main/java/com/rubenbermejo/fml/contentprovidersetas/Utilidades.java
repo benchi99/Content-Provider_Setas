@@ -36,6 +36,7 @@ public class Utilidades {
     final public static String ID_COLUMNA = "id";
     final public static String FAV_COLUMNA = "favorito";
     final public static String IMG_COLUMNA = "imagen";
+    final public static String AUTHORITY = "com.rubenbermejo.fml.contentprovidersetas";
 
     public void rellenaBaseDeDatos(SQLiteDatabase bd) {
         System.out.println(datos.size());
@@ -106,18 +107,6 @@ public class Utilidades {
             return true;
         }
 
-    }
-
-    public static void delElement(SetasSQLiteHelper con, int id){
-        SQLiteDatabase db = con.getWritableDatabase();
-
-        String[] param = { String.valueOf(id) };
-
-        try {
-            db.delete(NOMBRE_TABLA, ID_COLUMNA + " = ?", param);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     private void inicializarDatos() {

@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider android:name="proveeContenido" android:authorities="com.rubenbermejo.fml.contentprovidersetas"/>
     </application>
 
 </manifest>
