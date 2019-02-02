@@ -40,7 +40,7 @@ public class Utilidades {
 
     public void rellenaBaseDeDatos(SQLiteDatabase bd) {
         System.out.println(datos.size());
-        ContentValues cvs = null;
+        ContentValues cvs;
         for (int i = 0; i < datos.size(); i++) {
             cvs = new ContentValues();
             cvs.put(NOMBRE_COLUMNA, datos.get(i).getNombre());
@@ -55,32 +55,6 @@ public class Utilidades {
         }
     }
 
-    public static ArrayList<ObjetoSetas> obtenerListaMasReciente(SetasSQLiteHelper con, String param) {
-
-        SQLiteDatabase db = con.getReadableDatabase();
-        Cursor c = null;
-
-        String[] params = { "1" };
-        String[] cols = { "*" };
-
-        if (param.equals("normal")) {
-            c = db.rawQuery("SELECT * FROM " + NOMBRE_TABLA, null);
-        } else if (param.equals("favorito")){
-            c = db.query(Utilidades.NOMBRE_TABLA, cols, Utilidades.FAV_COLUMNA + " = ?", params, null, null, null);
-        }
-
-        ArrayList<ObjetoSetas> listActual = new ArrayList<>();
-        ObjetoSetas seta;
-
-        while (c.moveToNext()) {
-            seta = new ObjetoSetas(c.getString(1), c.getString(2), c.getString(3), c.getString(4), intToBool(Integer.parseInt(c.getString(5))), c.getBlob(7));
-            seta.setId(c.getInt(0));
-            listActual.add(seta);
-        }
-
-        return listActual;
-    }
-
     public static byte[] convertirImagenABytes(Bitmap bmp) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream(175000);
         bmp.compress(Bitmap.CompressFormat.PNG, 0, baos);
@@ -88,25 +62,8 @@ public class Utilidades {
         return blob;
     }
 
-    public static Bitmap convertirBytesAImagen(byte[] blob) {
-        Bitmap bmp;
-        ByteArrayInputStream bais = new ByteArrayInputStream(blob);
-        bmp = BitmapFactory.decodeStream(bais);
-        return bmp;
-    }
-
     private Bitmap intABitmap(int img) {
         return BitmapFactory.decodeResource(this.context.getResources(), img);
-    }
-
-    private static boolean intToBool(int val) {
-
-        if (val == 0) {
-            return false;
-        } else {
-            return true;
-        }
-
     }
 
     private void inicializarDatos() {
