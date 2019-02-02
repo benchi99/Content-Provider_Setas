@@ -101,18 +101,4 @@ public class proveeContenido extends ContentProvider {
 
         return cont;
     }
-
-    public static final class Setas implements BaseColumns {
-
-        private Setas() {}
-
-        public static final String COL_NOMBRE = Utilidades.NOMBRE_COLUMNA;
-        public static final String COL_NOMBRECOMUN = Utilidades.NOMBRECOMUN_COLUMNA;
-        public static final String COL_DESCRIPCION = Utilidades.DESCRIPCION_COLUMNA;
-        public static final String COL_URLINEA = Utilidades.URLLINEA_COLUMNA;
-        public static final String COL_COMESTIBLE = Utilidades.COMESTIBLE_COLUMNA;
-        public static final String COL_FAVORITO = Utilidades.FAV_COLUMNA;
-        public static final String COL_IMG = Utilidades.IMG_COLUMNA;
-
-    }
 }
