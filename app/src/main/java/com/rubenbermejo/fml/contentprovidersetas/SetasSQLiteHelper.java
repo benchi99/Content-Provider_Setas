@@ -19,9 +19,6 @@ public class SetasSQLiteHelper extends SQLiteOpenHelper {
     7. IMAGEN - BLOB <- NULL
      */
 
-    final String NORMAL = "normal";
-    final String FAVORITOS = "favorito";
-
     Context contexto;
 
     String sql = "CREATE TABLE " + Utilidades.NOMBRE_TABLA + "( " + Utilidades.ID_COLUMNA +"  INTEGER PRIMARY KEY AUTOINCREMENT, " + Utilidades.NOMBRE_COLUMNA + " TEXT, " + Utilidades.DESCRIPCION_COLUMNA + " TEXT, " + Utilidades.NOMBRECOMUN_COLUMNA + " TEXT, " + Utilidades.URLLINEA_COLUMNA + " TEXT, " + Utilidades.COMESTIBLE_COLUMNA + " BOOLEAN, " + Utilidades.FAV_COLUMNA + " BOOLEAN, " + Utilidades.IMG_COLUMNA + " BLOB)";
